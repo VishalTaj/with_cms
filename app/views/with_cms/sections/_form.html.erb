@@ -1,0 +1,18 @@
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Add Section</h2>
+    </div>
+    <div class="modal-body">
+      <%= form_for @section do |f|%>
+        <%= f.label:name %>
+        <%= f.text_field :name %>
+        <%= f.submit :Add, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $('span.close').click(function(){$('.modal').hide();})
+  </script>

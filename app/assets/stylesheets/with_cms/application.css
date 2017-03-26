@@ -59,6 +59,12 @@ footer{
   margin: 5px;
   min-width: 40px;
   padding: 0 10px 1px !important;
+  cursor: pointer;
+}
+button.btn{border:none;}
+
+.btn:hover {
+    opacity: 0.8;
 }
 
 .btn-primary{
@@ -82,4 +88,176 @@ footer{
 
 #logo{
   width:30px;
+}
+
+.li-btn{
+  width:30px;
+  outline: #fff;
+}
+
+#sections{
+  float: left;
+  width: 100%;
+}
+
+.section-header{
+  padding: 8px 16px;
+  background:#23282d;
+  color:#fff;
+  margin-top: 6px;
+  border: 1px solid #eee;
+}
+.section-header span{
+  font-size: 14px;
+  line-height: 30px;
+  text-transform: capitalize;
+}
+
+/* draggable */
+body.dragging, body.dragging * {
+  cursor: move !important;
+}
+
+.dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+
+ol.dragit li.placeholder {
+  position: relative;
+  /** More li styles **/
+}
+ol.dragit li.placeholder:before {
+  position: absolute;
+  /** Define arrowhead **/
+}
+/* modal */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-content {
+    position: fixed;
+    bottom: 0;
+    background-color: #fefefe;
+    width: 100%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color:#23282d;
+    color: white;
+}
+.modal-header h2, .modal-footer h3{margin: 2px;}
+
+.modal-body {padding: 2px 16px; min-height: 40px; margin-top: 4px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #fafafa;
+  color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+    from {bottom: -300px; opacity: 0} 
+    to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+.form-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Add a hover effect for buttons */
+.form-btn:hover {
+    opacity: 0.8;
+}
+
+/* Add padding to containers */
+.form-container {
+    padding: 16px;
+}
+
+/* The "Forgot password" text */
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
 }

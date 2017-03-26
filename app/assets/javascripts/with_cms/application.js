@@ -13,4 +13,15 @@
 //= require jquery                                                                                                                         
 //= require jquery_ujs  
 //= require_tree .
+$(document).ready(function(){
+  // modal bottom starts here
+  $('[data-modal="true"]').click(function() {
+    var modal = $("#"+$(this).attr("data-target"));
+    modal.toggle();
+  });
+  // modal bottom ends here
+});
 
+$(function  () {
+  $('[data-drag="true"]').sortable({pullPlaceholder: false});
+});

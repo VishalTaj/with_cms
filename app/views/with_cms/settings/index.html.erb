@@ -1,15 +1,50 @@
-<%= link_to 'Add Section', new_section_path, class:'btn btn-primary', remote: true %>
+<div style="width:100%;float: left;">
+  <%= link_to 'Add Section', new_section_path, class:'btn btn-primary', remote: true, data: {modal:'true', target: 'sectionModal'} %>
+  <button class='btn btn-primary' id="sort-section">Save Order</button>
+</div>
 <div id="sections">
   <% if @sections.present? %>
-    <div id="section-contents"></div>
+    <ol id="section-contents" data-drag="true">
+      <% @sections.each do |section| %>
+        <li class="section-header" data-id="<%= section.id %>">
+          <span class="title"><%= section.name %></span>
+          <span style="float: right;">
+              <%= link_to edit_section_path(section), remote: true, id:'myBtn', data: {modal:'true', target: 'sectionModal'} do %>
+              <%= image_tag("with_cms/edit.png", class: 'li-btn') %>
+            <% end %>
+            <%= link_to section_path(section), method: :delete do %>
+              <%= image_tag("with_cms/trash.png", class: 'li-btn') %>
+            <% end %>
+          </span> 
+        </li>
+      <% end %>
+    </ol>
   <% else %>
     <div class="note">
       <p>Oops seems no section created yet</p>
-      <p>Click <%= link_to 'Add Section', new_section_path, remote: true %></p>
+      <p>Click <%= link_to 'Add Section', new_section_path, remote: true, id:'myBtn', data: {modal:'true', target: 'sectionModal'} %></p>
     </div>
   <% end %>
 </div>
-<%= cms %>
+
+<!-- Modal for adding sections -->
+<div id="sectionModal" class="modal">
+</div>
 
 <script type="text/javascript">
+  $('#sort-section').click(function(){
+    sectionList = [];
+    $('.section-header').each(function(){
+      sectionList.push($(this).attr("data-id"));
+    });
+     $.ajax({
+      url: "<%= sort_sections_path %>",
+      type: 'PUT',    
+      data: {"sec_id": sectionList},
+      dataType: 'json',
+      success: function(result) {
+          alert("success?");
+      }
+     });
+  })
 </script>
