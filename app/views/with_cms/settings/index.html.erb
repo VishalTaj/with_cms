@@ -1,0 +1,15 @@
+<%= link_to 'Add Section', new_section_path, class:'btn btn-primary', remote: true %>
+<div id="sections">
+  <% if @sections.present? %>
+    <div id="section-contents"></div>
+  <% else %>
+    <div class="note">
+      <p>Oops seems no section created yet</p>
+      <p>Click <%= link_to 'Add Section', new_section_path, remote: true %></p>
+    </div>
+  <% end %>
+</div>
+<%= cms %>
+
+<script type="text/javascript">
+</script>
